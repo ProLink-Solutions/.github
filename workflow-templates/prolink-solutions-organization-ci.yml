@@ -1,0 +1,24 @@
+name: pr-commit-message-enforcer-and-linker
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  pr-commit-message-enforcer-and-linker:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Azure DevOps Commit Validator and Pull Request Linker
+      uses: joshjohanning/azdo_commit_message_validator@v2
+      with:
+        check-pull-request: true
+        check-commits: true
+        fail-if-missing-workitem-commit-link: true
+        link-commits-to-pull-request: true
+        azure-devops-organization: my-azdo-org
+        azure-devops-token: ${{ secrets.AZURE_DEVOPS_PAT }}
