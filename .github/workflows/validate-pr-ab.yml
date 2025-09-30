@@ -1,0 +1,17 @@
+name: 'Validate PR links to Azure Boards'
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+    branches:
+      - master
+      - release/*
+
+jobs:
+  check-ab-link:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Check for AB# in PR body'
+        uses: danhellem/github-actions-pr-is-linked-to-work-item@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
