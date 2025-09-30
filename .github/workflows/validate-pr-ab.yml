@@ -13,7 +13,6 @@ jobs:
     permissions:
       contents: read
       pull_requests: write
-      administration: write
     steps:
       - name: 'Check for AB# in PR body'
         uses: danhellem/github-actions-pr-is-linked-to-work-item@main
