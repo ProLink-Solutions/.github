@@ -1,4 +1,4 @@
-name: 'Validate PR links to Azure Boards'
+name: 'Validate PR links to One Azure Boards'
 
 on:
   pull_request:
